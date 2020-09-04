@@ -1,5 +1,5 @@
 # Applied JavaScript Sprint Challenge
-hello
+hello world
 **Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
 This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **Applied JavaScript**. During this sprint, you studied **DOM and components**. In your challenge this week, you will demonstrate your mastery of these skills by creating **an online Lambda newspaper called "Lambda Times"**.
@@ -28,13 +28,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What is the DOM?
 
+It treams the html document like a tree structure and has objects representing different parts of the document. It is how the document is accessed and manipulated.
+
 2. What is an event?
+
+Can be thought of like a button click, it is represented as an object. when the user generates an event, an event object is sent to the listener.
 
 3. What is an event listener?
 
+A procedure in javascript that waits for an event to be generated.
+
 4. Why would we convert a NodeList into an Array?
 
+So we can use methods like every(), some(), filter()
+
 5. What is a component?
+
+Usually a reusable piece of code. They work like javascript functions but return html and it renders.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 

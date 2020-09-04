@@ -20,3 +20,53 @@
 // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
 //
 // Use your function to create a card for each of the articles, and append each card to the DOM.
+
+function MakeArticleCard( articleObj ) {
+
+    const card = document.createElement('div')
+    const artHeadline = document.createElement('div')
+    const author = document.createElement('div')
+    const imgContainer = document.createElement('div')
+    const authorImage = document.createElement('img')
+    const signature = document.createElement('div')
+
+    card.classList.add('card')
+    artHeadline.classList.add('headline')
+    author.classList.add('author')
+    imgContainer.classList.add('img-container')
+
+    card.appendChild(artHeadline)
+    card.appendChild(author)
+    author.appendChild(imgContainer)
+    imgContainer.appendChild(authorImage)
+    author.appendChild(signature)
+
+    artHeadline.textContent = articleObj.headline
+    authorImage.src = articleObj.authorPhoto
+    signature.textContent = articleObj.authorName
+
+    card.addEventListener('click', evt => {
+        console.log(articleObj.headline)
+    })
+
+    return card
+}
+
+const cardContainer = document.querySelector('.cards-container')
+
+
+axios.get('https://lambda-times-api.herokuapp.com/articles')
+    .then(response => {
+        console.log(response.data.articles)
+        const articleArray = Object.values(response.data.articles)
+        console.log(articleArray)
+        articleArray.forEach(topic => {
+            topic.forEach(article => {
+                const newArticle = MakeArticleCard(article)
+                cardContainer.appendChild(newArticle)
+            })
+        })
+    })
+    .catch(err => {
+        debugger
+    })
