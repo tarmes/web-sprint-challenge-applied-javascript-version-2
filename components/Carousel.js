@@ -47,20 +47,46 @@ function MakeCarousel() {
   
   let index = 0
 
+  mountainPic.classList.add('display-img')
+
   leftButton.addEventListener('click', evt => {
-    index = index - 1
-    console.log(index)
+    if (index > 0) {
+      index = index - 1}
+    if (index === 0) {
+      mountainPic.classList.add('display-img')
+      computerPic.classList.remove('display-img')
+    } else if (index === 1) {
+      computerPic.classList.add('display-img')
+      treesPic.classList.remove('display-img')
+    } else if (index === 2) {
+      treesPic.classList.add('display-img')
+      turntablePic.classList.remove('display-img')
+    } else if (index ===3) {
+      turntablePic.classList.add('display-img')
+    }
   })
 
   rightButton.addEventListener('click', evt => {
-    index = index + 1
-    console.log(index)
+    if (index < 3) {
+      index = index + 1}
+    if (index === 0) {
+      mountainPic.classList.add('display-img')
+    } else if (index === 1) {
+      computerPic.classList.add('display-img')
+      mountainPic.classList.remove('display-img')
+    } else if (index === 2) {
+      treesPic.classList.add('display-img')
+      computerPic.classList.remove('display-img')
+    } else if (index ===3) {
+      turntablePic.classList.add('display-img')
+      treesPic.classList.remove('display-img')
+    }
   })
 
-  // carousel.appendChild(mountainPic)
-  // carousel.appendChild(computerPic)
-  // carousel.appendChild(treesPic)
-  // carousel.appendChild(turntablePic)
+  carousel.appendChild(mountainPic)
+  carousel.appendChild(computerPic)
+  carousel.appendChild(treesPic)
+  carousel.appendChild(turntablePic)
 
   if (index === 0) {
     carousel.appendChild(mountainPic)
